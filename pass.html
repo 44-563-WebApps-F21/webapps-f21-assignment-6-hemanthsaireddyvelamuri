@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<title>Baisc Javascript</title>
+<body>
+
+    <h2>Pass Phrase by Hemanth sai reddy velamuri</h2>
+
+    <form>
+        <label for="form1_age">What is your age </label>
+        <input type="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+        <label for="form1_nick">What is your nickname </label>
+        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+        <input type="button" onclick="resolveForm()" value="Get values from form">
+    </form>
+
+
+    <p id="result">This text will be replaced </p>
+
+    <script>
+
+        function resolveForm() {
+            console.log("Getting form values")
+            age = document.getElementById("form1_age").value
+            nick = document.getElementById("form1_nick").value
+            confirmed = confirm("Are these the values? " + age + " and " + nick)
+
+            out = document.getElementById("result")
+            if (confirmed) {
+                out.innerHTML = "Values were confirmed"
+            } else {
+                out.innerHTML = "Values were not confirmed"
+            }
+        }
+    </script>
+
+    <form>
+        <label for="secretPhraseForm2">Enter the secret phrase</label>
+        <input type="password" id="secretPhraseForm2" name="secretPhraseForm2" value="Let me in"> <br>
+
+        <label for="phraseToCheckForm2">Enter a phrase</label>
+        <input type="text" id="phraseToCheckForm2" name="phraseToCheckForm2"><br>
+
+        <input type="button" onclick="processPhrase()" value="Check the phrase">
+
+        <p id="tagging">This text changes and gives us the count of number of correct or wrong phrases entered.</p>
+    </form>
+
+    <script>
+        let correct = 0;
+        let wrong = 0;
+
+        function processPhrase() {
+            secretphrase = document.getElementById("secretPhraseForm2").value
+            guessphrase = document.getElementById("phraseToCheckForm2").value
+            tagged = document.getElementById("tagging")
+            if (secretphrase === guessphrase) {
+                correct = correct + 1;
+                alert("Access allowed");
+                tagged.innerHTML = "Phrase Correct count = " + correct;
+            }
+            else {
+                wrong = wrong + 1;
+                alert("Access Denied");
+                tagged.innerHTML = "Phrase Wrong count = " + wrong;
+            }
+        }
+    </script> 
+
+</body>
+
+</html>
