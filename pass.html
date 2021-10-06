@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <title>Baisc Javascript</title>
+
 <body>
 
     <h2>Pass Phrase by Hemanth sai reddy velamuri</h2>
@@ -66,7 +67,31 @@
                 tagged.innerHTML = "Phrase Wrong count = " + wrong;
             }
         }
-    </script> 
+    </script>
+
+    <div class="container">
+        <img src="images\Eagle.jpg" id="verifyonclick" height="200" width="200" onclick="newImage()">
+
+    </div>
+
+    <script>
+        let usingImage = 1;
+        function newImage() {
+            switch (usingImage) {
+                case 1:
+                    document.getElementById("verifyonclick").src = "images\Amur Leapord.jpg"
+                    break;
+                case 2:
+                    document.getElementById("verifyonclick").src = "images\Labmaraner.jpg"
+                    break;
+                case 3:
+                    document.getElementById("verifyonclick").src = "images\Eagle.jpg"
+                    usingImage=0;
+                    break;
+            }
+            usingImage++;
+        }
+    </script>
 
 </body>
 
