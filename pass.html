@@ -70,22 +70,27 @@
     </script>
 
     <div class="container">
-        <img src="images\Eagle.jpg" id="verifyonclick" height="200" width="200" onclick="newImage()">
+        <img src="Eagle.jpg" id="verifyonclick" height="200" width="200" onclick="newImage()">
+        <p id="changeValue">Here each image case values are displayed when clicked on image.</p>
 
     </div>
 
     <script>
         let usingImage = 1;
+        let valuesChanged = document.getElementById("changeValue")
         function newImage() {
             switch (usingImage) {
                 case 1:
-                    document.getElementById("verifyonclick").src = "images\Amur Leapord.jpg"
+                    document.getElementById("verifyonclick").src = "Amur Leapord.jpg"
+                    valuesChanged.innerHTML = "click : " + usingImage;
                     break;
                 case 2:
-                    document.getElementById("verifyonclick").src = "images\Labmaraner.jpg"
+                    document.getElementById("verifyonclick").src = "Labmaraner.jpg"
+                    valuesChanged.innerHTML = "click : " + usingImage;
                     break;
                 case 3:
-                    document.getElementById("verifyonclick").src = "images\Eagle.jpg"
+                    document.getElementById("verifyonclick").src = "Eagle.jpg"
+                    valuesChanged.innerHTML = "click : " + usingImage;
                     usingImage=0;
                     break;
             }
