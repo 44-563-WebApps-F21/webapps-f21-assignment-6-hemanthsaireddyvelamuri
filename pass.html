@@ -62,9 +62,15 @@
                 tagged.innerHTML = "Phrase Correct count = " + correct;
             }
             else {
-                wrong = wrong + 1;
-                alert("Access Denied");
-                tagged.innerHTML = "Phrase Wrong count = " + wrong;
+                if (wrong > 2) {
+                    alert("Account Locked! Please try again");
+                    tagged.innerHTML = "Account locked."
+                }
+                else {
+                    wrong = wrong + 1;
+                    alert("Access Denied");
+                    tagged.innerHTML = "Phrase Wrong count = " + wrong;
+                }
             }
         }
     </script>
@@ -91,7 +97,7 @@
                 case 3:
                     document.getElementById("verifyonclick").src = "Eagle.jpg"
                     valuesChanged.innerHTML = "click : " + usingImage;
-                    usingImage=0;
+                    usingImage = 0;
                     break;
             }
             usingImage++;
