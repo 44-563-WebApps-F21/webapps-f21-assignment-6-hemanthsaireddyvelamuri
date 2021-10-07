@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2> Hemanth Velamuri orders a car </h2>
+
+    <form>
+        <input type="checkbox" id="cbox1_electric" name="assert1" value="electric">
+        <label for="cbox1_electric">Electric</label></br>
+
+        <input type="checkbox" id="cbox1_ac" name="assert2" value="ac">
+        <label for="cbox1_ac">AC</label></br>
+
+        <input type="checkbox" id="cbox1_gps" name="assert3" value="gps">
+        <label for="cbox1_gps">GPS</label></br>
+
+        <input type="button" onclick="orderCar()" value="Order a Car">
+    </form>
+
+    <p id="labeled">The values are updated here.</p>
+
+    <script>
+        let my_car = {};
+        function orderCar() {
+            my_car = {};
+            electric = document.getElementById("cbox1_electric").checked
+            ac = document.getElementById("cbox1_ac").checked
+            gps = document.getElementById("cbox1_gps").checked
+            confirmed = confirm("Are the values " + electric + ", " + ac + " and " + gps)
+
+            taggd = document.getElementById("labeled")
+
+            if (confirmed) {
+                my_car = { electric, ac, gps }
+                my_car = JSON.stringify(my_car)
+                taggd.innerHTML = my_car
+                my_car = JSON.parse(my_car)
+            }
+            else {
+                my_car = { electric, ac, gps }
+                taggd.innerHTML = "Values were not confirmed, so it returns an empty string."
+            }
+            }
+    </script>
+
+    <form>
+        <label for="assertVal">Enter a property</label>
+        <input id="assertVal" type="text" value="color"> <br>
+
+        <label for="worthVal">Enter a Value</label>
+        <input id="worthVal" type="text"> <br>
+
+        <input type="button" onclick="updateCar()" value="Update the Car">
+    </form>
+
+    <p id="profitValue">The answer gets updated here.</p>
+
+    <script>
+
+            function updateCar() {
+                property = document.getElementById("assertVal").value
+                values = document.getElementById("worthVal").value
+                resultValue = document.getElementById("profitValue")
+                let my_car = "";
+                my_car = property + " : " + values
+
+                resultValue.innerHTML = "Following are the properties and values of car - " + my_car;
+            }
+    </script>
+</body>
+
+</html>
